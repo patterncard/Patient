@@ -1,9 +1,10 @@
 #include <iostream>
 #include <string.h>
+#include <iomanip>
 
 class Patient
 {
-public: //should be private
+public:
     char name[20];
     char lastName[20];
     int age;
@@ -50,16 +51,26 @@ public: //should be private
     {
         return weigth / (height * height);
     }
+
+    inline char display()
+    {
+        std::cout << name << std::setw(5) << lastName << std::setw(4) << " (Age: " << age << ", Height: " << height << ", Weigth: " << weigth << ")" << std::endl;
+    }
+
+    ~Patient()
+    {
+        std::cout << "Object of class Patient was destroyed" << std::endl;
+    }
 };
 
 int main()
 {
-    std::cout << "Object:" << std::endl;
-    Patient grandma("Iv", "Kiel", 80, 1.6, 50.0);
+    Patient grandma("John", "Doe", 80, 1.6, 50.0);
     std::cout << grandma.age << std::endl;
     std::cout << grandma.height << std::endl;
     std::cout << grandma.weigth << std::endl;
     std::cout << grandma.BodyMassIndex() << std::endl;
+    std::cout << grandma.display() << std::endl;
 
     return 0;
 }
