@@ -3,7 +3,7 @@
 
 class Patient
 {
-public:
+public: //should be private
     char name[20];
     char lastName[20];
     int age;
@@ -27,6 +27,7 @@ public:
         this->height = height;
         this->weigth = weigth;
     }
+
     Patient(char name[20], char lastName[20], int age)
     {
         strcpy(this->name, name);
@@ -35,15 +36,30 @@ public:
         this->height = 0;
         this->weigth = 0;
     }
+
+    Patient(const Patient &illPerson)
+    {
+        strcpy(this->name, illPerson.name);
+        strcpy(this->lastName, lastName);
+        this->age = illPerson.age;
+        this->height = illPerson.height;
+        this->weigth = illPerson.weigth;
+    }
 };
 
 int main()
 {
-    Patient somebody("Iv", "Kiel", 20);
-    std::cout << "foodAmount" << std::endl;
-    std::cout << somebody.age << std::endl;
-    std::cout << somebody.height << std::endl;
-    std::cout << somebody.weigth << std::endl;
+    std::cout << "Object:" << std::endl;
+    Patient grandma("Iv", "Kiel", 80, 3.3, 6.6);
+    std::cout << grandma.age << std::endl;
+    std::cout << grandma.height << std::endl;
+    std::cout << grandma.weigth << std::endl;
+
+    std::cout << "Object:" << std::endl;
+    Patient illPerson = grandma;
+    std::cout << grandma.age << std::endl;
+    std::cout << grandma.height << std::endl;
+    std::cout << grandma.weigth << std::endl;
 
     return 0;
 }
