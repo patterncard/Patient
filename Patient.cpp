@@ -65,12 +65,12 @@ public:
 
 int main()
 {
-    Patient grandma("John", "Doe", 80, 1.6, 50.0);
-    std::cout << grandma.age << std::endl;
-    std::cout << grandma.height << std::endl;
-    std::cout << grandma.weigth << std::endl;
-    std::cout << grandma.BodyMassIndex() << std::endl;
-    std::cout << grandma.display() << std::endl;
+    Patient grandad("John", "Doe", 80, 1.6, 50.0);
+    std::cout << grandad.age << std::endl;
+    std::cout << grandad.height << std::endl;
+    std::cout << grandad.weigth << std::endl;
+    std::cout << grandad.BodyMassIndex() << std::endl;
+    std::cout << grandad.display() << std::endl;
 
     return 0;
 }
