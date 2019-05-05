@@ -45,21 +45,21 @@ public: //should be private
         this->height = illPerson.height;
         this->weigth = illPerson.weigth;
     }
+
+    inline float BodyMassIndex()
+    {
+        return weigth / (height * height);
+    }
 };
 
 int main()
 {
     std::cout << "Object:" << std::endl;
-    Patient grandma("Iv", "Kiel", 80, 3.3, 6.6);
+    Patient grandma("Iv", "Kiel", 80, 1.6, 50.0);
     std::cout << grandma.age << std::endl;
     std::cout << grandma.height << std::endl;
     std::cout << grandma.weigth << std::endl;
-
-    std::cout << "Object:" << std::endl;
-    Patient illPerson = grandma;
-    std::cout << grandma.age << std::endl;
-    std::cout << grandma.height << std::endl;
-    std::cout << grandma.weigth << std::endl;
+    std::cout << grandma.BodyMassIndex() << std::endl;
 
     return 0;
 }
